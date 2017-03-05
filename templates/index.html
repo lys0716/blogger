@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blogger</title>
+</head>
+<body>
+    <a href="/signup">Signup</a>
+    {% if user %}
+        Welcome {{  user.username }}, here are your blogs. You can create new blog
+        <a href="/create"></a>, or <a href="/logout">logout</a>
+        {% for blog in blogs%}
+        <p>{% blog.content}</p>
+        {% endfor %}
+    {% else %}
+        You are not logged in, Please <a href="/login">login</a>
+    {% endif %}
+</body>
+</html>
